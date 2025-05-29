@@ -25,10 +25,9 @@ export default function Result() {
       link: 'https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-3-4hp-cooling-only-cw-hu70aa.html',
       reason: '入門型號，基本功能夠用，價錢親民'
     }
-  };
+  } as const;
 
-  const selected = models[model as string] || models['CS-LZ9ZKA'];
-
+  const selected = models[model as keyof typeof models] || models['CS-LZ9ZKA'];
 
   return (
     <div className="max-w-xl mx-auto p-6 text-center">
