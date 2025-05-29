@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function IG() {
+  const router = useRouter();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
 
@@ -49,6 +51,8 @@ export default function IG() {
       setStep(step + 1);
     } else {
       alert("感謝你完成測驗，我哋會為你推薦合適機種！");
+      const resultModel = "CS-Z18ZKA"; // 暫時固定推介，你可以改為計分邏輯
+      router.push(`/result?model=${resultModel}`);
     }
   };
 
