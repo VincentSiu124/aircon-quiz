@@ -27,7 +27,8 @@ export default function Result() {
     }
   };
 
-  const selected = models[model] || models['CS-LZ9ZKA'];
+  const selected = models[model as string] || models['CS-LZ9ZKA'];
+
 
   return (
     <div className="max-w-xl mx-auto p-6 text-center">
