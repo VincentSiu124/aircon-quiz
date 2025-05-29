@@ -1,4 +1,3 @@
-
 export default function IG() {
   return (
     <div style={{ padding: '2rem', textAlign: 'center' }}>

@@ -1,4 +1,3 @@
-
 export default function AirconQuiz() {
   return (
     <div style={{ padding: '2rem' }}>
