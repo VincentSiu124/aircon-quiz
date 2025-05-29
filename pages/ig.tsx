@@ -44,14 +44,41 @@ export default function IG() {
     }
   ];
 
+  const scoreModel = (answers: string[]): string => {
+    let scoreLZ = 0;
+    let scoreZ = 0;
+    let scoreHU = 0;
+
+    // 空間選擇
+    if (answers[0]?.startsWith("A") || answers[0]?.startsWith("C")) scoreLZ++;
+    if (answers[0]?.startsWith("B")) scoreZ++;
+    if (answers[0]?.startsWith("D")) scoreZ++;
+
+    // 靜音
+    if (answers[1]?.startsWith("A")) scoreLZ++;
+
+    // 功能需求
+    if (answers[2]?.startsWith("A")) scoreHU++;
+    if (answers[2]?.startsWith("B")) scoreLZ++;
+    if (answers[2]?.startsWith("C") || answers[2]?.startsWith("D")) scoreZ++;
+
+    // 預算
+    if (answers[3]?.startsWith("A")) scoreHU++;
+    if (answers[3]?.startsWith("B")) scoreLZ++;
+    if (answers[3]?.startsWith("C") || answers[3]?.startsWith("D")) scoreZ++;
+
+    if (scoreZ >= scoreLZ && scoreZ >= scoreHU) return "CS-Z18ZKA";
+    if (scoreLZ >= scoreHU) return "CS-LZ9ZKA";
+    return "CW-HU70AA";
+  };
+
   const handleAnswer = (answer: string) => {
     const updated = [...answers, answer];
     setAnswers(updated);
     if (step + 1 < questions.length) {
       setStep(step + 1);
     } else {
-      alert("感謝你完成測驗，我哋會為你推薦合適機種！");
-      const resultModel = "CS-Z18ZKA"; // 暫時固定推介，你可以改為計分邏輯
+      const resultModel = scoreModel(updated);
       router.push(`/result?model=${resultModel}`);
     }
   };
