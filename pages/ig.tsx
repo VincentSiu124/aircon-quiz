@@ -8,6 +8,14 @@ export default function IG() {
 
   const questions = [
     {
+      question: "你想要窗口機定分體機？",
+      options: [
+        "A. 窗口機",
+        "B. 分體機",
+        "C. 無所謂"
+      ]
+    },
+    {
       question: "你打算裝在哪個空間？",
       options: [
         "A. 睡房（細房）",
@@ -44,32 +52,56 @@ export default function IG() {
     }
   ];
 
-  const scoreModel = (answers: string[]): string => {
-    let scoreLZ = 0;
-    let scoreZ = 0;
-    let scoreHU = 0;
+  const scoreModel = (answers: string[]): string[] => {
+    const scores: Record<string, number> = {
+      "CW-HU70AA": 0, // 基本窗口機
+      "CW-XN121AA": 0, // 高階窗口機 (nanoeX)
+      "CS-LZ9ZKA": 0, // 中階分體
+      "CS-Z18ZKA": 0, // 高階分體智能變頻
+      "CU-4Z80YB": 0  // 一拖多多機掛牆
+    };
 
-    // 空間選擇
-    if (answers[0]?.startsWith("A") || answers[0]?.startsWith("C")) scoreLZ++;
-    if (answers[0]?.startsWith("B")) scoreZ++;
-    if (answers[0]?.startsWith("D")) scoreZ++;
+    // Q1: 機種選擇
+    if (answers[0]?.startsWith("A")) {
+      scores["CW-HU70AA"] += 2;
+      scores["CW-XN121AA"] += 2;
+    } else if (answers[0]?.startsWith("B")) {
+      scores["CS-LZ9ZKA"] += 2;
+      scores["CS-Z18ZKA"] += 2;
+      scores["CU-4Z80YB"] += 1;
+    } else {
+      Object.keys(scores).forEach((key) => scores[key] += 1);
+    }
 
-    // 靜音
-    if (answers[1]?.startsWith("A")) scoreLZ++;
+    // Q2: 空間
+    if (answers[1]?.startsWith("A")) {
+      scores["CW-HU70AA"] += 2;
+      scores["CS-LZ9ZKA"] += 2;
+    } else if (answers[1]?.startsWith("B")) {
+      scores["CS-Z18ZKA"] += 2;
+    } else if (answers[1]?.startsWith("D")) {
+      scores["CU-4Z80YB"] += 3;
+    }
 
-    // 功能需求
-    if (answers[2]?.startsWith("A")) scoreHU++;
-    if (answers[2]?.startsWith("B")) scoreLZ++;
-    if (answers[2]?.startsWith("C") || answers[2]?.startsWith("D")) scoreZ++;
+    // Q3: 靜音
+    if (answers[2]?.startsWith("A")) scores["CS-LZ9ZKA"] += 2;
+    if (answers[2]?.startsWith("B")) scores["CW-XN121AA"] += 1;
 
-    // 預算
-    if (answers[3]?.startsWith("A")) scoreHU++;
-    if (answers[3]?.startsWith("B")) scoreLZ++;
-    if (answers[3]?.startsWith("C") || answers[3]?.startsWith("D")) scoreZ++;
+    // Q4: 功能
+    if (answers[3]?.startsWith("A")) scores["CW-HU70AA"] += 2;
+    if (answers[3]?.startsWith("B")) scores["CW-XN121AA"] += 2;
+    if (answers[3]?.startsWith("C")) scores["CS-Z18ZKA"] += 3;
+    if (answers[3]?.startsWith("D")) scores["CU-4Z80YB"] += 2;
 
-    if (scoreZ >= scoreLZ && scoreZ >= scoreHU) return "CS-Z18ZKA";
-    if (scoreLZ >= scoreHU) return "CS-LZ9ZKA";
-    return "CW-HU70AA";
+    // Q5: 預算
+    if (answers[4]?.startsWith("A")) scores["CW-HU70AA"] += 2;
+    if (answers[4]?.startsWith("B")) scores["CW-XN121AA"] += 2;
+    if (answers[4]?.startsWith("C")) scores["CS-LZ9ZKA"] += 2;
+    if (answers[4]?.startsWith("D")) scores["CS-Z18ZKA"] += 2;
+
+    const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+    const topModels = sorted.slice(0, 2).map(([model]) => model);
+    return topModels;
   };
 
   const handleAnswer = (answer: string) => {
@@ -78,8 +110,8 @@ export default function IG() {
     if (step + 1 < questions.length) {
       setStep(step + 1);
     } else {
-      const resultModel = scoreModel(updated);
-      router.push(`/result?model=${resultModel}`);
+      const resultModels = scoreModel(updated);
+      router.push(`/result?models=${resultModels.join(",")}`);
     }
   };
 
