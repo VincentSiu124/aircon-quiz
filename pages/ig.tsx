@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { airconModels } from "../data/airconModels";
+
 
 export default function IG() {
   const router = useRouter();
