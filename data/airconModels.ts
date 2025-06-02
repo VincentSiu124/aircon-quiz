@@ -1,4 +1,4 @@
-// airconModels.ts - 冷氣資料庫
+// airconModels.ts - 冷氣資料庫（自 Excel 匯入）
 
 export type AirconModel = {
   id: string;
@@ -15,159 +15,269 @@ export type AirconModel = {
 
 export const airconModels: AirconModel[] = [
   {
-    id: "CW-HU70AA",
-    name: "CW-HU70AA",
-    type: "窗口機",
-    btu: 7400,
-    hp: 0.75,
-    features: ["nanoeX", "靜音", "Wi-Fi"],
-    priceRange: "3000-5000",
-    suitableRoom: "細房",
-    image: "/aircon-hu70aa.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-3-4hp-cooling-only-cw-hu70aa.html"
+    "id": "CW-SUL120BA ",
+    "name": "CW-SUL120BA ",
+    "type": "窗口機",
+    "btu": 12000,
+    "hp": 1.5,
+    "features": [
+      "慳電,寧靜,左出風,1級能源標籤"
+    ],
+    "priceRange": "8000-12000",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-sul120ba .jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-sul120ba.aspx"
   },
   {
-    id: "CW-XN121AA",
-    name: "CW-XN121AA",
-    type: "窗口機",
-    btu: 12200,
-    hp: 1.5,
-    features: ["除菌濾網"],
-    priceRange: "5000-8000",
-    suitableRoom: "客廳",
-    image: "/aircon-xn121aa.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-1-5hp-inverter-lite-cooling-only-cw-xn121aa.html"
+    "id": "CW-SUL180BA ",
+    "name": "CW-SUL180BA ",
+    "type": "窗口機",
+    "btu": 18000,
+    "hp": 2.0,
+    "features": [
+      "慳電,寧靜,左出風,1級能源標籤"
+    ],
+    "priceRange": "8000-12000",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-sul180ba .jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-sul180ba.aspx"
   },
   {
-    id: "CW-HZ180HA",
-    name: "CW-HZ180HA",
-    type: "窗口機",
-    btu: 18000,
-    hp: 2,
-    features: ["變頻", "靜音", "除菌濾網"],
-    priceRange: "8000-12000",
-    suitableRoom: "客廳",
-    image: "/aircon-hz180ha.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-2hp-inverter-cooling-only-cw-hz180ha.html"
+    "id": "CW-SUL240BA ",
+    "name": "CW-SUL240BA ",
+    "type": "窗口機",
+    "btu": 24000,
+    "hp": 2.5,
+    "features": [
+      "慳電,寧靜,左出風,1級能源標籤"
+    ],
+    "priceRange": "unlimited",
+    "suitableRoom": "多房",
+    "image": "/aircon-cw-sul240ba .jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-sul240ba.aspx"
   },
   {
-    id: "CW-HU90AA",
-    name: "CW-HU90AA",
-    type: "窗口機",
-    btu: 9000,
-    hp: 1,
-    features: ["靜音", "除菌濾網"],
-    priceRange: "5000-8000",
-    suitableRoom: "細房",
-    image: "/aircon-hu90aa.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-1hp-cooling-only-cw-hu90aa.html"
+    "id": "CW-SU90AA",
+    "name": "CW-SU90AA",
+    "type": "窗口機",
+    "btu": 9000,
+    "hp": 1.0,
+    "features": [
+      "慳電,寧靜,1級能源標籤"
+    ],
+    "priceRange": "5000-8000",
+    "suitableRoom": "細房",
+    "image": "/aircon-cw-su90aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-su90aa.aspx"
   },
   {
-    id: "CW-SU90AA",
-    name: "CW-SU90AA",
-    type: "窗口機",
-    btu: 9000,
-    hp: 1,
-    features: ["入門型", "輕巧設計"],
-    priceRange: "3000-5000",
-    suitableRoom: "細房",
-    image: "/aircon-su90aa.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-1hp-cooling-only-cw-su90aa.html"
+    "id": "CW-SU120AA",
+    "name": "CW-SU120AA",
+    "type": "窗口機",
+    "btu": 12000,
+    "hp": 1.5,
+    "features": [
+      "慳電,寧靜,1級能源標籤"
+    ],
+    "priceRange": "8000-12000",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-su120aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-su120aa.aspx"
   },
   {
-    id: "CW-HZ120AA",
-    name: "CW-HZ120AA",
-    type: "窗口機",
-    btu: 12000,
-    hp: 1.5,
-    features: ["變頻", "nanoeX"],
-    priceRange: "8000-12000",
-    suitableRoom: "客廳",
-    image: "/aircon-hz120aa.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-1-5hp-inverter-cooling-only-cw-hz120aa.html"
+    "id": "CW-SU180AA",
+    "name": "CW-SU180AA",
+    "type": "窗口機",
+    "btu": 18000,
+    "hp": 2.0,
+    "features": [
+      "慳電,寧靜,1級能源標籤"
+    ],
+    "priceRange": "8000-12000",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-su180aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-su180aa.aspx"
   },
   {
-    id: "CW-HZ240AA",
-    name: "CW-HZ240AA",
-    type: "窗口機",
-    btu: 24000,
-    hp: 2.5,
-    features: ["高冷量", "nanoeX", "靜音"],
-    priceRange: "unlimited",
-    suitableRoom: "客廳",
-    image: "/aircon-hz240aa.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-2-5hp-inverter-cooling-only-cw-hz240aa.html"
+    "id": "CW-SU240AA",
+    "name": "CW-SU240AA",
+    "type": "窗口機",
+    "btu": 24000,
+    "hp": 2.5,
+    "features": [
+      "慳電,寧靜,1級能源標籤"
+    ],
+    "priceRange": "unlimited",
+    "suitableRoom": "多房",
+    "image": "/aircon-cw-su240aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-su240aa.aspx"
   },
   {
-    id: "CW-SU70AA",
-    name: "CW-SU70AA",
-    type: "窗口機",
-    btu: 7000,
-    hp: 0.75,
-    features: ["基本功能", "經濟型"],
-    priceRange: "3000-5000",
-    suitableRoom: "細房",
-    image: "/aircon-su70aa.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-3-4hp-cooling-only-cw-su70aa.html"
+    "id": "CW-HU90AA",
+    "name": "CW-HU90AA",
+    "type": "窗口機",
+    "btu": 9000,
+    "hp": 1.0,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "8000-12000",
+    "suitableRoom": "細房",
+    "image": "/aircon-cw-hu90aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hu90aa.aspx"
   },
   {
-    id: "CW-SU120AA",
-    name: "CW-SU120AA",
-    type: "窗口機",
-    btu: 12000,
-    hp: 1.5,
-    features: ["基本功能", "除塵過濾"],
-    priceRange: "5000-8000",
-    suitableRoom: "客廳",
-    image: "/aircon-su120aa.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-1-5hp-cooling-only-cw-su120aa.html"
+    "id": "CW-HU120AA",
+    "name": "CW-HU120AA",
+    "type": "窗口機",
+    "btu": 12000,
+    "hp": 1.5,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "8000-12000",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-hu120aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hu120aa.aspx"
   },
   {
-    id: "CW-SUL180BA",
-    name: "CW-SUL180BA",
-    type: "窗口機",
-    btu: 18000,
-    hp: 2,
-    features: ["高冷量", "Wi-Fi", "靜音運行"],
-    priceRange: "8000-12000",
-    suitableRoom: "客廳",
-    image: "/aircon-sul180ba.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-type-2hp-inverter-cooling-only-cw-sul180ba.html"
+    "id": "CW-HU180AA",
+    "name": "CW-HU180AA",
+    "type": "窗口機",
+    "btu": 18000,
+    "hp": 2.0,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "unlimited",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-hu180aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hu180aa.aspx"
   },
   {
-    id: "CS-LZ9ZKA",
-    name: "CS-LZ9ZKA",
-    type: "分體機",
-    btu: 9000,
-    hp: 1,
-    features: ["靜音", "nanoeX"],
-    priceRange: "8000-12000",
-    suitableRoom: "細房",
-    image: "/aircon-lz12zka.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/inverter-1hp-cooling-model-cs-lz9zka.html"
+    "id": "CW-HU240AA",
+    "name": "CW-HU240AA",
+    "type": "窗口機",
+    "btu": 24000,
+    "hp": 2.5,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "unlimited",
+    "suitableRoom": "多房",
+    "image": "/aircon-cw-hu240aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hu240aa.aspx"
   },
   {
-    id: "CS-Z18ZKA",
-    name: "CS-Z18ZKA",
-    type: "分體機",
-    btu: 18000,
-    hp: 2,
-    features: ["變頻", "Wi-Fi", "智能操控"],
-    priceRange: "unlimited",
-    suitableRoom: "客廳",
-    image: "/aircon-z12zka.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/inverter-2hp-cooling-heating-model-cs-z18zka.html"
+    "id": "CW-HZ90AA",
+    "name": "CW-HZ90AA",
+    "type": "窗口機",
+    "btu": 9000,
+    "hp": 1.0,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "8000-12000",
+    "suitableRoom": "細房",
+    "image": "/aircon-cw-hz90aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hz90aa.aspx"
   },
   {
-    id: "CU-4Z80YB",
-    name: "CU-4Z80YB",
-    type: "分體機",
-    btu: 28000,
-    hp: 3.5,
-    features: ["多房間接駁", "nanoeX"],
-    priceRange: "unlimited",
-    suitableRoom: "多房",
-    image: "/aircon-cu4z80yb.jpg",
-    link: "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/multi-split-type-3-5hp-inverter-cooling-heating-cu-4z80yb.html"
+    "id": "CW-HZ120AA",
+    "name": "CW-HZ120AA",
+    "type": "窗口機",
+    "btu": 12000,
+    "hp": 1.5,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "unlimited",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-hz120aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hz120aa.aspx"
+  },
+  {
+    "id": "CW-HZ180AA",
+    "name": "CW-HZ180AA",
+    "type": "窗口機",
+    "btu": 18000,
+    "hp": 2.0,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "unlimited",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-hz180aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hz180aa.aspx"
+  },
+  {
+    "id": "CW-HZ240AA",
+    "name": "CW-HZ240AA",
+    "type": "窗口機",
+    "btu": 24000,
+    "hp": 2.5,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "unlimited",
+    "suitableRoom": "多房",
+    "image": "/aircon-cw-hz240aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hz240aa.aspx"
+  },
+  {
+    "id": "CW-N921JA",
+    "name": "CW-N921JA",
+    "type": "窗口機",
+    "btu": 9000,
+    "hp": 1.0,
+    "features": [
+      "定頻式,3級能源標籤"
+    ],
+    "priceRange": "5000-8000",
+    "suitableRoom": "細房",
+    "image": "/aircon-cw-n921ja.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-n921ja.aspx"
+  },
+  {
+    "id": "CW-N1221VA",
+    "name": "CW-N1221VA",
+    "type": "窗口機",
+    "btu": 12000,
+    "hp": 1.5,
+    "features": [
+      "定頻式,3級能源標籤"
+    ],
+    "priceRange": "5000-8000",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-n1221va.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-n1221va.aspx"
+  },
+  {
+    "id": "CW-N1821EA",
+    "name": "CW-N1821EA",
+    "type": "窗口機",
+    "btu": 18000,
+    "hp": 2.0,
+    "features": [
+      "定頻式,3級能源標籤"
+    ],
+    "priceRange": "8000-12000",
+    "suitableRoom": "客廳",
+    "image": "/aircon-cw-n1821ea.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-n1821ea.aspx"
+  },
+  {
+    "id": "CW-N2421EA",
+    "name": "CW-N2421EA",
+    "type": "窗口機",
+    "btu": 24000,
+    "hp": 2.5,
+    "features": [
+      "定頻式,3級能源標籤"
+    ],
+    "priceRange": "unlimited",
+    "suitableRoom": "多房",
+    "image": "/aircon-cw-n2421ea.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-n2421ea.aspx"
   }
 ];
