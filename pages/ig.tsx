@@ -69,7 +69,6 @@ export default function IG() {
     if (step + 1 < questions.length) {
       setStep(step + 1);
     } else {
-      // 根據選擇範圍對應面積中心值
       const areaMap: Record<string, number> = {
         "A. 50 - 70 呎": 60,
         "B. 80 - 100 呎": 90,
