@@ -1,4 +1,4 @@
-// airconModels.ts - 冷氣資料庫（自 Excel 匯入）
+// airconModels.ts - 冷氣資料庫（來自 Excel，含 0.75 匹）
 
 export type AirconModel = {
   id: string;
@@ -57,6 +57,20 @@ export const airconModels: AirconModel[] = [
     "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-sul240ba.aspx"
   },
   {
+    "id": "CW-SU70AA",
+    "name": "CW-SU70AA",
+    "type": "窗口機",
+    "btu": 7200,
+    "hp": 0.75,
+    "features": [
+      "慳電,寧靜,1級能源標籤"
+    ],
+    "priceRange": "5000-8000",
+    "suitableRoom": "細房",
+    "image": "/aircon-cw-su70aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-su70aa.aspx"
+  },
+  {
     "id": "CW-SU90AA",
     "name": "CW-SU90AA",
     "type": "窗口機",
@@ -111,6 +125,20 @@ export const airconModels: AirconModel[] = [
     "suitableRoom": "多房",
     "image": "/aircon-cw-su240aa.jpg",
     "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-su240aa.aspx"
+  },
+  {
+    "id": "CW-HU70AA",
+    "name": "CW-HU70AA",
+    "type": "窗口機",
+    "btu": 7200,
+    "hp": 0.75,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "5000-8000",
+    "suitableRoom": "細房",
+    "image": "/aircon-cw-hu70aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hu70aa.aspx"
   },
   {
     "id": "CW-HU90AA",
@@ -169,6 +197,20 @@ export const airconModels: AirconModel[] = [
     "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hu240aa.aspx"
   },
   {
+    "id": "CW-HZ70AA",
+    "name": "CW-HZ70AA",
+    "type": "窗口機",
+    "btu": 7200,
+    "hp": 0.75,
+    "features": [
+      "慳電,寧靜,WIFI,nanoeX Mark 3,1級能源標籤"
+    ],
+    "priceRange": "5000-8000",
+    "suitableRoom": "細房",
+    "image": "/aircon-cw-hz70aa.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hz70aa.aspx"
+  },
+  {
     "id": "CW-HZ90AA",
     "name": "CW-HZ90AA",
     "type": "窗口機",
@@ -223,6 +265,20 @@ export const airconModels: AirconModel[] = [
     "suitableRoom": "多房",
     "image": "/aircon-cw-hz240aa.jpg",
     "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-hz240aa.aspx"
+  },
+  {
+    "id": "CW-N721JA",
+    "name": "CW-N721JA",
+    "type": "窗口機",
+    "btu": 7200,
+    "hp": 0.75,
+    "features": [
+      "定頻式,3級能源標籤"
+    ],
+    "priceRange": "3000-5000",
+    "suitableRoom": "細房",
+    "image": "/aircon-cw-n721ja.jpg",
+    "link": "https://www.panasonic.hk/chinese/products/living/ventilation-air-conditioning/window-air-conditioner/cw-n721ja.aspx"
   },
   {
     "id": "CW-N921JA",
