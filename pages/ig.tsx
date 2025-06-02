@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { airconModels } from "../data/airconModels";
-
+import { findModelsByArea } from "@/data/airconModels";
 
 export default function IG() {
   const router = useRouter();
@@ -9,6 +8,16 @@ export default function IG() {
   const [answers, setAnswers] = useState<string[]>([]);
 
   const questions = [
+    {
+      question: "你房間面積大約係：",
+      options: [
+        "A. 50 - 70 呎",
+        "B. 80 - 100 呎",
+        "C. 110 - 150 呎",
+        "D. 160 - 200 呎",
+        "E. 210 - 250 呎"
+      ]
+    },
     {
       question: "你想要窗口機定分體機？",
       options: [
@@ -54,66 +63,25 @@ export default function IG() {
     }
   ];
 
-  const scoreModel = (answers: string[]): string[] => {
-    const scores: Record<string, number> = {
-      "CW-HU70AA": 0, // 基本窗口機
-      "CW-XN121AA": 0, // 高階窗口機 (nanoeX)
-      "CS-LZ9ZKA": 0, // 中階分體
-      "CS-Z18ZKA": 0, // 高階分體智能變頻
-      "CU-4Z80YB": 0  // 一拖多多機掛牆
-    };
-
-    // Q1: 機種選擇
-    if (answers[0]?.startsWith("A")) {
-      scores["CW-HU70AA"] += 2;
-      scores["CW-XN121AA"] += 2;
-    } else if (answers[0]?.startsWith("B")) {
-      scores["CS-LZ9ZKA"] += 2;
-      scores["CS-Z18ZKA"] += 2;
-      scores["CU-4Z80YB"] += 1;
-    } else {
-      Object.keys(scores).forEach((key) => scores[key] += 1);
-    }
-
-    // Q2: 空間
-    if (answers[1]?.startsWith("A")) {
-      scores["CW-HU70AA"] += 2;
-      scores["CS-LZ9ZKA"] += 2;
-    } else if (answers[1]?.startsWith("B")) {
-      scores["CS-Z18ZKA"] += 2;
-    } else if (answers[1]?.startsWith("D")) {
-      scores["CU-4Z80YB"] += 3;
-    }
-
-    // Q3: 靜音
-    if (answers[2]?.startsWith("A")) scores["CS-LZ9ZKA"] += 2;
-    if (answers[2]?.startsWith("B")) scores["CW-XN121AA"] += 1;
-
-    // Q4: 功能
-    if (answers[3]?.startsWith("A")) scores["CW-HU70AA"] += 2;
-    if (answers[3]?.startsWith("B")) scores["CW-XN121AA"] += 2;
-    if (answers[3]?.startsWith("C")) scores["CS-Z18ZKA"] += 3;
-    if (answers[3]?.startsWith("D")) scores["CU-4Z80YB"] += 2;
-
-    // Q5: 預算
-    if (answers[4]?.startsWith("A")) scores["CW-HU70AA"] += 2;
-    if (answers[4]?.startsWith("B")) scores["CW-XN121AA"] += 2;
-    if (answers[4]?.startsWith("C")) scores["CS-LZ9ZKA"] += 2;
-    if (answers[4]?.startsWith("D")) scores["CS-Z18ZKA"] += 2;
-
-    const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-    const topModels = sorted.slice(0, 2).map(([model]) => model);
-    return topModels;
-  };
-
   const handleAnswer = (answer: string) => {
     const updated = [...answers, answer];
     setAnswers(updated);
     if (step + 1 < questions.length) {
       setStep(step + 1);
     } else {
-      const resultModels = scoreModel(updated);
-      router.push(`/result?models=${resultModels.join(",")}`);
+      // 根據選擇範圍對應面積中心值
+      const areaMap: Record<string, number> = {
+        "A. 50 - 70 呎": 60,
+        "B. 80 - 100 呎": 90,
+        "C. 110 - 150 呎": 130,
+        "D. 160 - 200 呎": 180,
+        "E. 210 - 250 呎": 230
+      };
+      const areaAnswer = updated[0];
+      const area = areaMap[areaAnswer] || 100;
+      const recommended = findModelsByArea(area);
+      const modelIds = recommended.map(m => m.id).join(",");
+      router.push(`/result?models=${modelIds}`);
     }
   };
 
