@@ -1,4 +1,4 @@
-// 冷氣心理測驗頁面 /ig.tsx 專用互動版本（根據心理問題）
+// 冷氣測驗頁面 /ig.tsx 專用互動版本（根據心理問題）
 
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
